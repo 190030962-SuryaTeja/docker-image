@@ -12,7 +12,7 @@ pipeline
         {
             steps
             {
-                sh 'docker build -t suryaimg/img:latest -f ./dockerfile'
+                sh 'docker build -t suryaimg/img:latest .'
                 echo 'Stage Build Done'
              }
          }
