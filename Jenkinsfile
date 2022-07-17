@@ -1,6 +1,9 @@
 pipeline
 {
-  agent any
+  agent
+  {
+    docker { image 'fedora' }
+  }
   environment
   {
       DOCKERHUB_CREDENTIALS=credentials('docker-hub')
@@ -20,7 +23,7 @@ pipeline
          {
             steps
             {
-                sh 'echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR$ --password-stdin'
                 echo 'Login Done'
              }
          }
