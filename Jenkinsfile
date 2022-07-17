@@ -12,7 +12,9 @@ pipeline
         {
             steps
             {
-                sh 'dir'
+                sh 'pwd'
+                sh 'ls -ltr'
+              
                 sh 'docker build -t suryaimg/img:latest .'
                 echo 'Stage Build Done'
              }
