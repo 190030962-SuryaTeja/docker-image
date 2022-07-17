@@ -8,13 +8,13 @@ pipeline
    
    stages
    {
-        stage('Build')
+       /* stage('Build')
         {
             steps
             {
                 sh 'docker build -t suryaimg/img:latest -f ./Dockerfile'
              }
-         }
+         }*/
           
          stage('Login')
          {
@@ -24,13 +24,13 @@ pipeline
              }
          }
          
-         stage('Push')
+         /*stage('Push')
          {
             steps
             {
                 sh 'docker push suryaimg/img:latest'
              }
-         }
+         }*/
      }   
      post
      {
