@@ -12,11 +12,8 @@ RUN yum upgrade
 RUN yum install -y java
 RUN yum install jenkins -y
 RUN systemctl enable jenkins
-RUN systemctl start jenkins
-RUN systemctl status jenkins
 
 RUN yum install -y docker
-RUN service docker start
 
 RUN yum install -y maven
 
