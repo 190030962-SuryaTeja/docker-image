@@ -3,8 +3,8 @@ pipeline
   agent any
   environment
   {
-      DOCKERHUB_CREDENTIALS = credentials('docker-hub')
-   }
+      DOCKERHUB_CREDENTIALS=credentials('docker-hub')
+  }
    
    stages
    {
@@ -12,7 +12,7 @@ pipeline
         {
             steps
             {
-                sh 'docker build -t suryaimg -f .'
+                sh 'docker build -t suryaimg/img:latest -f .'
              }
          }
           
@@ -28,7 +28,7 @@ pipeline
          {
             steps
             {
-                sh 'docker push suryaimg'
+                sh 'docker push suryaimg/img:latest'
              }
          }
      }   
