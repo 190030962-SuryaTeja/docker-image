@@ -12,7 +12,7 @@ pipeline
         {
             steps
             {
-                sh 'docker build suryaimg .'
+                sh 'docker build -t suryaimg -f .'
              }
          }
           
@@ -20,7 +20,7 @@ pipeline
          {
             steps
             {
-                sh 'docker login -u $DOCKERHUB_CREDENTIALS --password-stdin'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS --password-stdin'
              }
          }
          
@@ -28,7 +28,7 @@ pipeline
          {
             steps
             {
-                sh 'docker push suryaimg '
+                sh 'docker push suryaimg'
              }
          }
      }   
