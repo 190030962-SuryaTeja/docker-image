@@ -1,10 +1,10 @@
 pipeline
 {
   agent any
- /* environment
+  environment
   {
       DOCKERHUB_CREDENTIALS=credentials('docker-hub')
-  }*/
+  }
    
    stages
    {
@@ -12,7 +12,7 @@ pipeline
         {
             steps
             {
-                sh 'docker build -t suryaimg/img:latest -f .'
+                sh 'docker build -t suryaimg/img:latest -f ./Dockerfile'
              }
          }
           
