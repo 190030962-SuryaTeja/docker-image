@@ -8,6 +8,14 @@ pipeline
    
    stages
    {
+        stage('Demo')
+         {
+            steps
+            {
+                
+                echo 'Hello'
+             }
+         }
        /* stage('Build')
         {
             steps
