@@ -2,7 +2,7 @@ pipeline
 {
   agent
   {
-    docker { image 'fedora' }
+    docker any
   }
   environment
   {
@@ -15,7 +15,7 @@ pipeline
         {
             steps
             {
-                sh 'docker build -t suryaimg/img:latest -f ./Dockerfile'
+                sh 'docker build -t suryaimg/img:latest -f ./dockerfile'
                 echo 'Stage Build Done'
              }
          }
@@ -24,7 +24,7 @@ pipeline
          {
             steps
             {
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR$ --password-stdin'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 echo 'Stage Login Done'
              }
          }
