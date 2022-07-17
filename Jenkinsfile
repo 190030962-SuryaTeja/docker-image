@@ -8,44 +8,36 @@ pipeline
    
    stages
    {
-        stage('Demo')
-         {
-            steps
-            {
-                
-                echo 'Hello'
-             }
-         }
-       /* stage('Build')
+        stage('Build')
         {
             steps
             {
                 sh 'docker build -t suryaimg/img:latest -f ./Dockerfile'
              }
-         }*/
+         }
           
          stage('Login')
          {
             steps
             {
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                sh 'echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin'
                 echo 'Login Done'
              }
          }
          
-         /*stage('Push')
+         stage('Push')
          {
             steps
             {
                 sh 'docker push suryaimg/img:latest'
              }
-         }*/
+         }
      }   
-    /* post
+     post
      {
         always
         {
             sh 'docker logout'
          }
-      }*/
+      }
 }
