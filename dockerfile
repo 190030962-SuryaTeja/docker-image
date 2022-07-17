@@ -1,12 +1,21 @@
 FROM centos
-RUN yum -y update && yum clean all
-RUN sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
-RUN sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+RUN cd /etc/yum.repos.d/
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+RUN yum clean all
+RUN yum -y update
+RUN yum install -y wget
+RUN wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+RUN rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 RUN yum upgrade
-RUN sudo install java-openjdk11 -y
-RUN sudo yum install jenkins -y
-RUN sudo systemctl enable jenkins; sudo systemctl start jenkins; sudo systemctl status jenkins
-RUN ssh-keygen -t rsa
+RUN yum install -y java
+RUN yum install jenkins -y
+RUN systemctl enable jenkins
+
+RUN yum install -y git
+
 RUN yum install -y maven
 
+CMD /bin/bash
 EXPOSE 8080
