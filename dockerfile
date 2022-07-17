@@ -3,6 +3,9 @@ FROM amazonlinux
 RUN yum -y update
 RUN yum clean all
 RUN yum install -y wget
+
+RUN yum install -y git
+
 RUN wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 RUN rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 RUN yum upgrade
@@ -12,7 +15,8 @@ RUN systemctl enable jenkins
 RUN systemctl start jenkins
 RUN systemctl status jenkins
 
-RUN yum install -y git
+RUN yum install -y docker
+RUN service docker start
 
 RUN yum install -y maven
 
