@@ -13,7 +13,7 @@ RUN yum install -y java
 RUN yum install jenkins -y
 RUN systemctl enable jenkins
 
-RUN yum install -y docker
+RUN amazon-linux-extras install docker
 
 RUN yum install -y maven
 
