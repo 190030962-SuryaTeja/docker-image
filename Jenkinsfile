@@ -16,6 +16,7 @@ pipeline
             steps
             {
                 sh 'docker build -t suryaimg/img:latest -f ./Dockerfile'
+                echo 'Stage Build Done'
              }
          }
           
@@ -24,7 +25,7 @@ pipeline
             steps
             {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR$ --password-stdin'
-                echo 'Login Done'
+                echo 'Stage Login Done'
              }
          }
          
@@ -33,14 +34,15 @@ pipeline
             steps
             {
                 sh 'docker push suryaimg/img:latest'
+                echo 'Stage Push Done'
              }
          }
      }   
-     post
+     /*post
      {
         always
         {
             sh 'docker logout'
          }
-      }
+      }*/
 }
