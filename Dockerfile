@@ -12,4 +12,6 @@ RUN ssh-keygen -t rsa
 // Jenkins first time password sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 // $ ls ~/.ssh/	you can see 3 files: id_rsa, id_rsa.pub authorised_keys
 
+RUN yum install -y maven
+
 EXPOSE 8080
