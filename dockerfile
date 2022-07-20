@@ -14,7 +14,6 @@ RUN yum install jenkins -y
 RUN systemctl enable jenkins
 
 RUN amazon-linux-extras install docker
-RUN chmod 666 /var/run/docker.sock
 
 RUN yum install -y maven
 
