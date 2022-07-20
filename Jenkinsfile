@@ -15,7 +15,7 @@ pipeline
                 sh 'pwd'
                 sh 'ls -ltr'
               
-                sh 'docker build -t suryaimg:latest .'
+                sh 'docker build -t msuryateja/myimg:latest .'
                 echo 'Stage Build Done'
              }
          }
@@ -33,7 +33,7 @@ pipeline
          {
             steps
             {
-                sh 'docker push suryaimg:latest'
+                sh 'docker push msuryateja/myimg:latest'
                 echo 'Stage Push Done'
              }
          }
