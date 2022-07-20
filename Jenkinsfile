@@ -33,7 +33,7 @@ pipeline
          {
             steps
             {
-                sh 'docker push msuryateja/suryaimg:latest'
+                sh 'docker push suryaimg:latest'
                 echo 'Stage Push Done'
              }
          }
